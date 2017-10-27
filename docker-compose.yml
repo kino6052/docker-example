@@ -1,0 +1,14 @@
+version: '3'
+services:
+  node:
+    build: ./docker
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./docker:/usr/src/app/
+    environment:
+      - NAME=compose
+      - PORT=7777
+    deploy:
+      restart_policy:
+        condition: on-failure
